@@ -20,7 +20,9 @@ CREATE TABLE IF NOT EXISTS `ims`.`orders` (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `customer_id` int(11) NOT NULL,
 `item_id_1` int(11) NOT NULL,
+`item_quantity` int (11) NOT NULL,
 `total_cost` double NOT NULL,
 PRIMARY KEY (`id`),
-Foreign key (`customer_id`) references `ims`.`customers`(`id`)
+Foreign key (`customer_id`) references `ims`.`customers`(`id`),
+Foreign key (`item_id_1`) references `ims`.`items`(`id`)
 );
