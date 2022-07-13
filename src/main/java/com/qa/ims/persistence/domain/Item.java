@@ -2,7 +2,7 @@ package com.qa.ims.persistence.domain;
 
 public class Item {
 
-	private Long id;
+	private Long itemId;
 	private String title;
 	private double price;
 
@@ -11,18 +11,18 @@ public class Item {
 		this.setPrice(price);
 	}
 
-	public Item(Long id, String title, double price) {
-		this.setId(id);
+	public Item(Long itemId, String title, double price) {
+		this.setItemId(itemId);
 		this.setTitle(title);
 		this.setPrice(price);
 	}
 
-	public Long getId() {
-		return id;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getTitle() {
@@ -43,7 +43,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "id: " + id + ", title: " + title + ", price: £" + price;
+		return "id: " + itemId + ", title: " + title + ", price: £" + price;
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class Item {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((itemId == null) ? 0 : itemId.hashCode());
 		return result;
 	}
 
@@ -69,10 +69,10 @@ public class Item {
 				return false;
 		} else if (!getTitle().equals(other.getTitle()))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (itemId == null) {
+			if (other.itemId != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!itemId.equals(other.itemId))
 			return false;
 		return true;
 	}
