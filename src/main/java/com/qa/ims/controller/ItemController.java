@@ -61,4 +61,10 @@ public class ItemController implements CrudController<Item> {
 		return itemDAO.delete(itemId);
 	}
 
+	@Override
+	public Item addItemToOrder() {
+		LOGGER.info("Please select another action");
+		return null;
+	}
+
 }

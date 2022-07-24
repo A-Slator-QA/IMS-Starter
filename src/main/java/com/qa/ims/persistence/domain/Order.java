@@ -1,23 +1,30 @@
 package com.qa.ims.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order {
 
 	private Long orderId;
-	private Long fk_customerId;
-	private Long fk_itemId;
+	private Long customerId;
+	private Long itemId;
+	private Long quantity;
+	private Double price;
+	private Double totalPrice;
 
-	public Order(Long fk_customerId, Long fk_itemId) {
-		this.setFk_customerId(fk_customerId);
-		this.setFk_itemId(fk_itemId);
+	List<Order> orderItems = new ArrayList<>();
+
+	public Order(Long orderId2, Long customerId2, Long itemId2, Long quantity2, Double price2, Double totalPrice2) {
+		// TODO Auto-generated constructor stub
 	}
 
-	public Order(Long orderId, Long fk_customerId, Long fk_itemId) {
-		this.setOrderId(orderId);
-		this.setFk_customerId(fk_customerId);
-		this.setFk_itemId(fk_itemId);
+	public Order(Long customerId) {
+		this.customerId = customerId;
 	}
 
-	// ArrayList of items w/ tables from MySql
+	public Order(Long orderId, Long customer_id) {
+
+	}
 
 	public Long getOrderId() {
 		return orderId;
@@ -27,34 +34,49 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public Long getFk_customerId() {
-		return fk_customerId;
+	public Long getCustomerId() {
+		return customerId;
 	}
 
-	public void setFk_customerId(Long fk_customerId) {
-		this.fk_customerId = fk_customerId;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
-	public Long getFk_itemId() {
-		return fk_itemId;
+	public Long getQuantity() {
+		return quantity;
 	}
 
-	public void setFk_itemId(Long fk_itemId) {
-		this.fk_itemId = fk_itemId;
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
 
-	@Override
-	public String toString() {
-		return "Order ID: " + orderId + ", Customer ID: " + fk_customerId + ", Item Order ID: " + fk_itemId;
+	public Double getPrice() {
+		return price;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((fk_customerId == null) ? 0 : fk_customerId.hashCode());
-		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
-		result = prime * result + ((fk_itemId == null) ? 0 : fk_itemId.hashCode());
-		return result;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
+
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Long getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
+	}
+
+	public void addItemToOrder(Long orderId1, Long customerId1, Long itemId1, Long quantity1, Double price2,
+			Double totalPrice2) {
+
+	}
+
 }

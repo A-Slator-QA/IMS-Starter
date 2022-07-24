@@ -80,4 +80,10 @@ public class CustomerController implements CrudController<Customer> {
 		return customerDAO.delete(customerId);
 	}
 
+	@Override
+	public Customer addItemToOrder() {
+		LOGGER.info("Please select another action");
+		return null;
+	}
+
 }

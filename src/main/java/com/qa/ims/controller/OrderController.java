@@ -31,13 +31,24 @@ public class OrderController implements CrudController<Order> {
 		return orders;
 	}
 
+	@Override
+	public Order addItemToOrder() {
+		LOGGER.info("Please enter the order ID you would like to add items to:");
+		Long orderId = utils.getLong();
+		LOGGER.info("Please enter the item ID you would like to add to the order:");
+		Long fk_itemId = utils.getLong();
+		LOGGER.info("Please enter the quantity of the item to add to the order:");
+		Long quantity = utils.getLong();
+		Order order = orderDAO.addItemToOrder(orderId, fk_itemId, quantity);
+		return order;
+
+	}
+
 	@Override // Creates an order via user input
 	public Order create() {
 		LOGGER.info("Please enter the Customer ID:");
 		Long customer_id = utils.getLong();
-		LOGGER.info("Please enter the Item ID:");
-		Long items_id = utils.getLong();
-		Order order = orderDAO.create(new Order(customer_id, items_id));
+		Order order = orderDAO.create(new Order(customer_id));
 		LOGGER.info("Order created");
 		return order;
 	}
@@ -45,12 +56,10 @@ public class OrderController implements CrudController<Order> {
 	@Override // Updates an existing order
 	public Order update() {
 		LOGGER.info("Please enter the ID of the order you would like to update");
-		Long id = utils.getLong();
+		Long orderId = utils.getLong();
 		LOGGER.info("Please enter a Customer ID");
 		Long customer_id = utils.getLong();
-		LOGGER.info("Please enter an Item ID");
-		Long items_id = utils.getLong();
-		Order order = orderDAO.update(new Order(id, customer_id, items_id));
+		Order order = orderDAO.update(new Order(orderId, customer_id));
 		LOGGER.info("Order Updated");
 		return order;
 	}
@@ -58,8 +67,8 @@ public class OrderController implements CrudController<Order> {
 	@Override // Deletes an existing order
 	public int delete() {
 		LOGGER.info("Please enter the ID of the order you would like to delete");
-		Long id = utils.getLong();
-		return orderDAO.delete(id);
+		Long orderId = utils.getLong();
+		return orderDAO.delete(orderId);
 	}
 
 }

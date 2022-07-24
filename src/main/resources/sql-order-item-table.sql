@@ -8,9 +8,18 @@
 
 -- select o.`orderId`, p.`orditeId`, `itemId`, `title`, `price` from chungus c
 -- join `ims`.`orders` o on o.`orderId` = p.`fk_orderId` ;
-
-SELECT o.`orderId`, p.`orditeId`, i.`itemId`, i.`title`, i.`price`, (p.`quantity` * i.`price`) as `totalPrice` from `ims`.`items` i
-	join `ims`.`orderItems` p
-		join `ims`.orders o 
+use `ims`;
+SELECT p.`fk_itemId`, i.`title`, i.`price`, p.`quantity`, (p.`quantity` * i.`price`) as `totalPrice` from `items` i
+	join `orderItems` p
+		join `orders` o 
         on o.`orderId` = p.`fk_orderId`
-	on i.`itemId` = p.`fk_itemId`;
+	on i.`itemId` = p.`fk_itemId` where o.`orderId`;
+    
+Select o.`orderId`, o.`fk_customerId`, p.`fk_itemId`, i.`title`, i.`price`, p.`quantity`, (p.`quantity` * i.`price`) as `totalPrice` from `items` i
+	join `orderItems` p
+		join `orders` o
+        on o.`orderId` = p.`fk_orderId`
+	on i.`itemId` = p.`fk_itemId` order by o.`orderId`;
+	
+
+    select * from `orderItems`;
