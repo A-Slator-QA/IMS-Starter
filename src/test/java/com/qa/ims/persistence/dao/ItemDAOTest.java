@@ -30,7 +30,7 @@ public class ItemDAOTest {
 	@Test
 	public void testReadAll() {
 		List<Item> expected = new ArrayList<>();
-		expected.add(new Item(1L, "'tyfvghubj'", 4));
+		expected.add(new Item(1L, "'Shark Cage Simulator'", 9.99));
 		assertEquals(expected, DAO.readAll());
 	}
 
