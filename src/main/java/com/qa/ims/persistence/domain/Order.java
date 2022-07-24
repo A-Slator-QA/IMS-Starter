@@ -22,8 +22,8 @@ public class Order {
 		this.customerId = customerId;
 	}
 
-	public Order(Long orderId2, Long customer_id) {
-		// TODO Auto-generated constructor stub
+	public Order(Long orderId, Long customer_id) {
+
 	}
 
 	public Long getOrderId() {
