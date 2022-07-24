@@ -6,40 +6,24 @@ import java.util.List;
 public class Order {
 
 	private Long orderId;
-	private Long fk_customerId;
-	private Long fk_itemId;
+	private Long customerId;
+	private Long itemId;
 	private Long quantity;
 	private Double price;
 	private Double totalPrice;
 
 	List<Order> orderItems = new ArrayList<>();
 
-	public Order(Long fk_customerId) {
-		this.setFk_customerId(fk_customerId);
-
+	public Order(Long orderId2, Long customerId2, Long itemId2, Long quantity2, Double price2, Double totalPrice2) {
+		// TODO Auto-generated constructor stub
 	}
 
-	public Order(Long orderId, Long fk_customerId) {
-		this.setOrderId(orderId);
-		this.setFk_customerId(fk_customerId);
-
+	public Order(Long customerId) {
+		this.customerId = customerId;
 	}
 
-	public Order(Long orderId, Long fk_customerId, Long fk_itemId, Long quantity, Double price, Double totalPrice) {
-		this.setOrderId(orderId);
-		this.setFk_customerId(fk_customerId);
-		this.setFk_itemId(fk_itemId);
-		this.setQuantity(quantity);
-		this.setPrice(price);
-		this.setTotalPrice(totalPrice);
-	}
-
-	// ArrayList of items w/ tables from MySql
-
-	public void addItemToOrder(Long orderId, Long fk_customerId, Long fk_itemId, Long quantity, Double price,
-			Double totalPrice) {
-
-		orderItems.add(new Order(orderId, fk_customerId, fk_itemId, quantity, price, totalPrice));
+	public Order(Long orderId2, Long customer_id) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public Long getOrderId() {
@@ -50,20 +34,12 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public Long getFk_customerId() {
-		return fk_customerId;
+	public Long getCustomerId() {
+		return customerId;
 	}
 
-	public void setFk_customerId(Long fk_customerId) {
-		this.fk_customerId = fk_customerId;
-	}
-
-	public Long getFk_itemId() {
-		return fk_itemId;
-	}
-
-	public void setFk_itemId(Long fk_itemId) {
-		this.fk_itemId = fk_itemId;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
 	public Long getQuantity() {
@@ -90,18 +66,17 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
-	@Override
-	public String toString() {
-		return "Order ID: " + orderId + ", Customer ID: " + fk_customerId;
+	public Long getItemId() {
+		return itemId;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((fk_customerId == null) ? 0 : fk_customerId.hashCode());
-		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
-		return result;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
+	}
+
+	public void addItemToOrder(Long orderId1, Long customerId1, Long itemId1, Long quantity1, Double price2,
+			Double totalPrice2) {
+
 	}
 
 }
